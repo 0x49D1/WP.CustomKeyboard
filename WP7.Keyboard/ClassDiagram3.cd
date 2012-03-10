@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WP7.Keyboard.Controls.KeyboardScreenControl">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="KeyboardProperty" Hidden="true" />
+      <Method Name="KeyboardScreenControl" Hidden="true" />
+      <Method Name="OnApplyTemplate" Hidden="true" />
+      <Method Name="OnBackspaceKeyClicked" Hidden="true" />
+      <Method Name="OnEnterKeyClicked" Hidden="true" />
+      <Method Name="OnKeyboardChanged" Hidden="true" />
+      <Method Name="OnKeyboardKeyClicked" Hidden="true" />
+      <Method Name="OnOutputControlChanged" Hidden="true" />
+      <Method Name="OnSpaceKeyClicked" Hidden="true" />
+      <Field Name="OutputControlProperty" Hidden="true" />
+      <Field Name="SpaceSymbol" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAACAADAAQAAAAAIQQAAAAAEAAAgAAAAAAgAAIA=</HashCode>
+      <FileName>Controls\KeyboardScreenControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
