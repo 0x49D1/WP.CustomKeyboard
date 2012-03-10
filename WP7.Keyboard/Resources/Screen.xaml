@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Controls="clr-namespace:WP7.Keyboard.Controls">
+
+    <Style TargetType="Controls:DefaultScreenControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Controls:DefaultScreenControl">
+                    <Border Background="#77000000"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <TextBlock x:Name="PART_ScreenTextBlock"
+                                   Margin="11"
+                                   FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
+                                   FontSize="26"
+                                   TextWrapping="Wrap" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

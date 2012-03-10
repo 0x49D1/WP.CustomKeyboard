@@ -1,0 +1,53 @@
+﻿<phone:PhoneApplicationPage x:Class="WP7.Keyboard.Client.MainPage"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            mc:Ignorable="d"
+                            d:DesignWidth="480"
+                            d:DesignHeight="696"
+                            Orientation="Portrait"
+                            shell:SystemTray.IsVisible="True"
+                            xmlns:keyboardControls="clr-namespace:WP7.Keyboard.Controls;assembly=WP7.Keyboard"
+                            xmlns:bgKeyboard="clr-namespace:WP7.GeorgianKeyboard;assembly=WP7.GeorgianKeyboard">
+    <UserControl.Resources>
+    </UserControl.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="/WP7.Keyboard.Client;component/Background.png" />
+        </Grid.Background>
+        <keyboardControls:KeyboardScreenControl x:Name="Keyboard">
+            <keyboardControls:KeyboardScreenControl.Keyboard>
+                <bgKeyboard:GeorgianKeyboard />
+            </keyboardControls:KeyboardScreenControl.Keyboard>
+        </keyboardControls:KeyboardScreenControl>
+
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True">
+            <shell:ApplicationBarIconButton IconUri="/Resources/Icons/Email.png"
+                                            Text="Email"
+                                            x:Name="btnEmail"
+                                            Click="EmailButtonClick" />
+            <shell:ApplicationBarIconButton IconUri="/Resources/Icons/BingSearch.png"
+                                            Text="Bing Search"
+                                            x:Name="btnBingSearch"
+                                            Click="BingSearchButtonClick" />
+            <shell:ApplicationBarIconButton IconUri="/Resources/Icons/PhoneCall.png"
+                                            Text="SMS"
+                                            x:Name="btnSms"
+                                            Click="SmsButtonClick" />
+            <shell:ApplicationBarIconButton IconUri="/Resources/Icons/SwitchKeyboard.png"
+                                            Text="EN"
+                                            x:Name="btnChangeKeyboard"
+                                            Click="ChangeKeyboardButtonClick" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
