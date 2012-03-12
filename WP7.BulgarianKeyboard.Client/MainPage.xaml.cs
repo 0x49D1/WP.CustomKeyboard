@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
@@ -35,7 +36,7 @@ namespace WP7.Keyboard.Client
 
         private void ChangeKeyboardButtonClick(object sender, EventArgs e)
         {
-            ApplicationBarIconButton changeKeyboardButton = sender as ApplicationBarIconButton;
+            ApplicationBarMenuItem changeKeyboardButton = sender as ApplicationBarMenuItem;
             if (changeKeyboardButton == null)
             {
                 return;
@@ -44,13 +45,18 @@ namespace WP7.Keyboard.Client
             if (ReferenceEquals(geoKeyboard, this.Keyboard.Keyboard))
             {
                 this.Keyboard.Keyboard = this.latinKeyboard;
-                changeKeyboardButton.Text = "geo";
+                changeKeyboardButton.Text = "Switch to GEO";
             }
             else
             {
                 this.Keyboard.Keyboard = this.geoKeyboard;
-                changeKeyboardButton.Text = "en";
+                changeKeyboardButton.Text = "Switch to EN";
             }
+        }
+
+        private void CopyTextButtonClick(object sender, EventArgs e)
+        {
+            Clipboard.SetText(this.Keyboard.OutputControl.Text);
         }
     }
 }
