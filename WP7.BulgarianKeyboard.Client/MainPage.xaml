@@ -11,7 +11,7 @@
                             Orientation="Portrait"
                             shell:SystemTray.IsVisible="True"
                             xmlns:keyboardControls="clr-namespace:WP7.Keyboard.Controls;assembly=WP7.Keyboard"
-                            xmlns:bgKeyboard="clr-namespace:WP7.GeorgianKeyboard;assembly=WP7.GeorgianKeyboard">
+                            xmlns:bgKeyboard="clr-namespace:WP7.GeorgianKeyboard;assembly=WP7.GeorgianKeyboard" >
     <UserControl.Resources>
     </UserControl.Resources>
 
@@ -29,8 +29,8 @@
     </Grid>
 
     <!--Sample code showing usage of ApplicationBar-->
-    <phone:PhoneApplicationPage.ApplicationBar >
-        <shell:ApplicationBar IsVisible="True" >
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True">
             <shell:ApplicationBarIconButton IconUri="/Resources/Icons/Email.png"
                                             Text="Email"
                                             x:Name="btnEmail"
