@@ -9,11 +9,13 @@
                     <Border Background="#77000000"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <TextBlock x:Name="PART_ScreenTextBlock"
+                        <ScrollViewer>
+                            <TextBlock x:Name="PART_ScreenTextBlock"
                                    Margin="11"
                                    FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
                                    FontSize="26"
                                    TextWrapping="Wrap" />
+                        </ScrollViewer>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
