@@ -11,8 +11,6 @@ namespace WP7.Keyboard.Client
         private Keyboard.Controls.Keyboard geoKeyboard;
         private Keyboard.Controls.Keyboard latinKeyboard;
 
-        private string localClipboard = string.Empty;
-
         // Constructor
         public MainPage()
         {
@@ -61,11 +59,7 @@ namespace WP7.Keyboard.Client
         {
             try
             {
-                localClipboard = this.Keyboard.OutputControl.Text;
-                Clipboard.SetText(localClipboard);
-                ApplicationBarMenuItem item = (ApplicationBarMenuItem)ApplicationBar.MenuItems[1];
-                if (item != null)
-                    item.IsEnabled = true;
+                Clipboard.SetText(this.Keyboard.OutputControl.Text);
                 MessageBox.Show("Copy success!");
             }
             catch (SecurityException ex)
@@ -78,7 +72,7 @@ namespace WP7.Keyboard.Client
         {
             if (Clipboard.ContainsText())
             {
-                this.Keyboard.OutputControl.AppendToText(localClipboard);
+                this.Keyboard.OutputControl.AppendToText(Clipboard.GetText());
             }
         }
 
@@ -88,10 +82,7 @@ namespace WP7.Keyboard.Client
             {
                 if (MessageBox.Show("Do you really want to clear all text?", "", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {
-                    while (this.Keyboard.OutputControl.Text.Length > 0)
-                    {
-                        this.Keyboard.OutputControl.RemoveLast();
-                    }
+                    this.Keyboard.OutputControl.Clear();
                 }
             }
         }

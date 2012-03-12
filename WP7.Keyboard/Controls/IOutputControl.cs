@@ -7,7 +7,8 @@
             get;
         }
 
-        void AppendToText( string symbol );
+        void AppendToText(string symbol);
         void RemoveLast();
+        void Clear();
     }
 }
