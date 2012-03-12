@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WP7.Keyboard.Client", "WP7.BulgarianKeyboard.Client\WP7.Keyboard.Client.csproj", "{7D433C74-71D7-41EC-9232-78D9408B580F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WP7.Keyboard.Client", "WP7.Keyboard.Client\WP7.Keyboard.Client.csproj", "{7D433C74-71D7-41EC-9232-78D9408B580F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WP7.Keyboard", "WP7.Keyboard\WP7.Keyboard.csproj", "{940C39F3-7AEB-4810-85C0-E600F1F57C84}"
 EndProject
