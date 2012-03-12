@@ -11,6 +11,8 @@ namespace WP7.Keyboard.Client
         private Keyboard.Controls.Keyboard geoKeyboard;
         private Keyboard.Controls.Keyboard latinKeyboard;
 
+        private string localClipboard = string.Empty;
+
         // Constructor
         public MainPage()
         {
@@ -18,7 +20,6 @@ namespace WP7.Keyboard.Client
 
             latinKeyboard = new LatinKeyboard.LatinKeyboard();
             geoKeyboard = this.Keyboard.Keyboard;
-            this.Loaded += (sender, args) => btnPaste.IsEnabled = Clipboard.ContainsText();
         }
 
         private void EmailButtonClick(object sender, EventArgs e)
@@ -60,8 +61,11 @@ namespace WP7.Keyboard.Client
         {
             try
             {
-                Clipboard.SetText(this.Keyboard.OutputControl.Text);
-                btnPaste.IsEnabled = true;
+                localClipboard = this.Keyboard.OutputControl.Text;
+                Clipboard.SetText(localClipboard);
+                ApplicationBarMenuItem item = (ApplicationBarMenuItem)ApplicationBar.MenuItems[1];
+                if (item != null)
+                    item.IsEnabled = true;
                 MessageBox.Show("Copy success!");
             }
             catch (SecurityException ex)
@@ -74,7 +78,7 @@ namespace WP7.Keyboard.Client
         {
             if (Clipboard.ContainsText())
             {
-                this.Keyboard.OutputControl.AppendToText(Clipboard.GetText());
+                this.Keyboard.OutputControl.AppendToText(localClipboard);
             }
         }
 
