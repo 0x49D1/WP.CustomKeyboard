@@ -18,7 +18,7 @@ namespace WP7.Keyboard.Client
 
             latinKeyboard = new LatinKeyboard.LatinKeyboard();
             geoKeyboard = this.Keyboard.Keyboard;
-            btnPaste.IsEnabled = Clipboard.ContainsText();
+            this.Loaded += (sender, args) => btnPaste.IsEnabled = Clipboard.ContainsText();
         }
 
         private void EmailButtonClick(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace WP7.Keyboard.Client
         {
             if (this.Keyboard.OutputControl.Text.Length > 0)
             {
-                if (MessageBox.Show("Do you really want to clear all text?","",MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                if (MessageBox.Show("Do you really want to clear all text?", "", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {
                     while (this.Keyboard.OutputControl.Text.Length > 0)
                     {
