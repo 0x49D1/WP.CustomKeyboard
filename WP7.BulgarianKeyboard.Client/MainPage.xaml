@@ -44,7 +44,7 @@
                                             x:Name="btnSms"
                                             Click="SmsButtonClick" />
             <shell:ApplicationBarIconButton IconUri="/Resources/Icons/Copy.png"
-                                            Text="Copy to clipboard"
+                                            Text="Copy text"
                                             x:Name="btnCopyText"
                                             Click="CopyTextButtonClick" />
             <shell:ApplicationBar.MenuItems>

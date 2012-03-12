@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security;
 using System.Windows;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
@@ -56,7 +57,15 @@ namespace WP7.Keyboard.Client
 
         private void CopyTextButtonClick(object sender, EventArgs e)
         {
-            Clipboard.SetText(this.Keyboard.OutputControl.Text);
+            try
+            {
+                Clipboard.SetText(this.Keyboard.OutputControl.Text);
+                MessageBox.Show("Copy success!");
+            }
+            catch (SecurityException ex)
+            {
+                MessageBox.Show("Clipboard not permitted");
+            }
         }
     }
 }
