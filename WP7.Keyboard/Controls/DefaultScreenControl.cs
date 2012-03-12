@@ -9,17 +9,17 @@ namespace WP7.Keyboard.Controls
 
         public DefaultScreenControl()
         {
-            this.DefaultStyleKey = typeof( DefaultScreenControl );
+            this.DefaultStyleKey = typeof(DefaultScreenControl);
         }
 
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            this.screenTextBlock = this.GetTemplateChild( "PART_ScreenTextBlock" ) as TextBlock;
+            this.screenTextBlock = this.GetTemplateChild("PART_ScreenTextBlock") as TextBlock;
 
-            if ( screenTextBlock == null )
+            if (screenTextBlock == null)
             {
-                throw new InvalidOperationException( "Cannot find PART_ScreenTextBlock." );
+                throw new InvalidOperationException("Cannot find PART_ScreenTextBlock.");
             }
         }
 
@@ -31,19 +31,30 @@ namespace WP7.Keyboard.Controls
             }
         }
 
-        public void AppendToText( string symbol )
+        public void AppendToText(string symbol)
         {
             this.screenTextBlock.Text += symbol;
         }
 
         public void RemoveLast()
         {
-            if ( this.screenTextBlock.Text.Length == 0 )
+            if (this.screenTextBlock.Text.Length == 0)
             {
                 return;
             }
 
-            this.screenTextBlock.Text = this.screenTextBlock.Text.Remove( this.screenTextBlock.Text.Length - 1, 1 );
+            this.screenTextBlock.Text = this.screenTextBlock.Text.Remove(this.screenTextBlock.Text.Length - 1, 1);
+        }
+
+        public void Clear()
+        {
+            if (this.screenTextBlock.Text.Length == 0)
+                return;
+
+            while (this.screenTextBlock.Text.Length > 0)
+            {
+                RemoveLast();
+            }
         }
     }
 }
