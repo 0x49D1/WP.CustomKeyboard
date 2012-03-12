@@ -18,6 +18,7 @@ namespace WP7.Keyboard.Client
 
             latinKeyboard = new LatinKeyboard.LatinKeyboard();
             geoKeyboard = this.Keyboard.Keyboard;
+            btnPaste.IsEnabled = Clipboard.ContainsText();
         }
 
         private void EmailButtonClick(object sender, EventArgs e)
@@ -60,11 +61,34 @@ namespace WP7.Keyboard.Client
             try
             {
                 Clipboard.SetText(this.Keyboard.OutputControl.Text);
+                btnPaste.IsEnabled = true;
                 MessageBox.Show("Copy success!");
             }
             catch (SecurityException ex)
             {
                 MessageBox.Show("Clipboard not permitted");
+            }
+        }
+
+        private void PasteClick(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText())
+            {
+                this.Keyboard.OutputControl.AppendToText(Clipboard.GetText());
+            }
+        }
+
+        private void ClearClick(object sender, EventArgs e)
+        {
+            if (this.Keyboard.OutputControl.Text.Length > 0)
+            {
+                if (MessageBox.Show("Do you really want to clear all text?","",MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                {
+                    while (this.Keyboard.OutputControl.Text.Length > 0)
+                    {
+                        this.Keyboard.OutputControl.RemoveLast();
+                    }
+                }
             }
         }
     }

@@ -84,6 +84,7 @@
     <Content Include="ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Background.png" />
     <Content Include="Resources\Icons\Copy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
