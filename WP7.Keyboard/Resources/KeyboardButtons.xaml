@@ -3,21 +3,7 @@
                     xmlns:Controls="clr-namespace:WP7.Keyboard.Controls">
 
     <Style TargetType="Controls:KeyboardButton">
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush EndPoint=".7,1"
-                                     StartPoint=".7,0">
-                    <GradientStop Color="#FFFFFFFF"
-                                  Offset="0" />
-                    <GradientStop Color="#F9FFFFFF"
-                                  Offset="0.45" />
-                    <GradientStop Color="#E5F4F4F4"
-                                  Offset="0.598" />
-                    <GradientStop Color="#C6DEE1E6"
-                                  Offset="0.996" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Background" Value="#FFFFFFFF"/>
         <Setter Property="Foreground"
                 Value="#FF000000" />
         <Setter Property="Padding"
@@ -36,21 +22,7 @@
                 Value="30" />
         <Setter Property="IsTabStop"
                 Value="False" />
-        <Setter Property="BorderBrush">
-            <Setter.Value>
-                <LinearGradientBrush EndPoint="0.5,1"
-                                     StartPoint="0.5,0">
-                    <GradientStop Color="#FFC7C7C7"
-                                  Offset="0" />
-                    <GradientStop Color="#FF8399A9"
-                                  Offset="0.375" />
-                    <GradientStop Color="#FF93979B"
-                                  Offset="0.375" />
-                    <GradientStop Color="#FF787878"
-                                  Offset="1" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="BorderBrush" Value="Gray"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -117,20 +89,15 @@
                         <Border x:Name="ButtonBackground"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="4">
+                                >
                             <Border Background="{TemplateBinding Background}"
-                                    CornerRadius="3">
+                                    >
                                 <Border x:Name="BorderBackgroundAnimation"
-                                        CornerRadius="3"
+                                   
                                         Opacity="0">
                                     <Border.Background>
                                         <LinearGradientBrush EndPoint="0.5,1"
-                                                             StartPoint="0.5,0">
-                                            <GradientStop Color="#56FFFFFF"
-                                                          Offset="0.889" />
-                                            <GradientStop Color="#00FDF3F3" />
-                                            <GradientStop Color="#D8FFFFFF"
-                                                          Offset="1" />
+                                                             StartPoint="0.5,0">                                        
                                             <GradientStop Color="White"
                                                           Offset="0.219" />
                                         </LinearGradientBrush>
@@ -140,7 +107,6 @@
                         </Border>
                         <Border x:Name="BorderPressBackground"
                                 BorderThickness="1,1,1,0"
-                                CornerRadius="8"
                                 Margin="-5,-15,-5,4"
                                 RenderTransformOrigin="0.5,0.5"
                                 Visibility="Collapsed">
@@ -156,20 +122,12 @@
                                                   Offset="1" />
                                 </LinearGradientBrush>
                             </Border.BorderBrush>
-                            <Border CornerRadius="8,8,4,4">
+                            <Border >
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1"
                                                          StartPoint="0.5,0">
                                         <GradientStop Color="White"
                                                       Offset="0" />
-                                        <GradientStop Color="LightGray"
-                                                      Offset="0.165" />
-                                        <GradientStop Color="White"
-                                                      Offset="1" />
-                                        <GradientStop Color="White"
-                                                      Offset="0.873" />
-                                        <GradientStop Color="#FFFDFDFD"
-                                                      Offset="0.029" />
                                     </LinearGradientBrush>
                                 </Border.Background>
                             </Border>
@@ -209,21 +167,7 @@
 
     <Style x:Key="FunctionKeyStyle"
            TargetType="Controls:FunctionKeyboardButton">
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush EndPoint=".7,1"
-                                     StartPoint=".7,0">
-                    <GradientStop Color="#FFFFFFFF"
-                                  Offset="0" />
-                    <GradientStop Color="#F9FFFFFF"
-                                  Offset="0.45" />
-                    <GradientStop Color="#E5F4F4F4"
-                                  Offset="0.598" />
-                    <GradientStop Color="#C6DEE1E6"
-                                  Offset="0.996" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Background" Value="LightGray"/>
         <Setter Property="Foreground"
                 Value="#FF000000" />
         <Setter Property="Padding"
@@ -242,21 +186,7 @@
                 Value="22.667" />
         <Setter Property="IsTabStop"
                 Value="False" />
-        <Setter Property="BorderBrush">
-            <Setter.Value>
-                <LinearGradientBrush EndPoint="0.5,1"
-                                     StartPoint="0.5,0">
-                    <GradientStop Color="#FFC7C7C7"
-                                  Offset="0" />
-                    <GradientStop Color="#FF8399A9"
-                                  Offset="0.375" />
-                    <GradientStop Color="#FF93979B"
-                                  Offset="0.375" />
-                    <GradientStop Color="#FF787878"
-                                  Offset="1" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="BorderBrush" Value="#FFC7C7C7"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -348,25 +278,10 @@
                         <Border x:Name="Background"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="4">
-                            <Border Background="{TemplateBinding Background}"
-                                    CornerRadius="3">
+                              >
+                            <Border Background="{TemplateBinding Background}"                                  >
                                 <Border x:Name="BackgroundAnimation"
-                                        Opacity="0"
-                                        CornerRadius="3">
-                                    <Border.Background>
-                                        <LinearGradientBrush EndPoint=".7,1"
-                                                             StartPoint=".7,0">
-                                            <GradientStop Color="#30FFFFFF"
-                                                          Offset="0.004" />
-                                            <GradientStop Color="#19FFFFFF"
-                                                          Offset="0.394" />
-                                            <GradientStop Color="#33414141"
-                                                          Offset="0.562" />
-                                            <GradientStop Color="#5D000000"
-                                                          Offset="0.996" />
-                                        </LinearGradientBrush>
-                                    </Border.Background>
+                                        Opacity="0">                                  
                                 </Border>
                             </Border>
                         </Border>
@@ -404,71 +319,22 @@
 
     <Style TargetType="Controls:SpaceKeyboardButton"
            BasedOn="{StaticResource FunctionKeyStyle}">
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush EndPoint="0.699999988079071,1"
-                                     StartPoint="0.699999988079071,0">
-                    <GradientStop Color="#FFC8CFD6"
-                                  Offset="0.04" />
-                    <GradientStop Color="#F9A8AAAF"
-                                  Offset="0.446" />
-                    <GradientStop Color="#FF7A7A7A"
-                                  Offset="0.996" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground"
-                Value="#FFC9C9C9" />
+                Value="Black" />
         <Setter Property="Padding"
                 Value="0" />
-        <Setter Property="BorderBrush">
-            <Setter.Value>
-                <LinearGradientBrush EndPoint="0.5,1"
-                                     StartPoint="0.5,0">
-                    <GradientStop Color="#FFD6D2D2"
-                                  Offset="0" />
-                    <GradientStop Color="#FF8399A9"
-                                  Offset="0.375" />
-                    <GradientStop Color="#FF93979B"
-                                  Offset="0.375" />
-                    <GradientStop Color="#FF535252"
-                                  Offset="1" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="BorderBrush" Value="Gray"/>
     </Style>
 
     <Style TargetType="Controls:SystemKeyButton"
            BasedOn="{StaticResource FunctionKeyStyle}">
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush EndPoint="0.699999988079071,1"
-                                     StartPoint="0.699999988079071,0">
-                    <GradientStop Color="#FFA3A1B5"
-                                  Offset="0" />
-                    <GradientStop Color="#FF939CAB"
-                                  Offset="0.494" />
-                    <GradientStop Color="#FF717E94"
-                                  Offset="0.657" />
-                    <GradientStop Color="#FF4D5965"
-                                  Offset="0.996" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Background" Value="#FF939CAB"/>
         <Setter Property="Foreground"
                 Value="White" />
         <Setter Property="Padding"
                 Value="0" />
-        <Setter Property="BorderBrush">
-            <Setter.Value>
-                <LinearGradientBrush EndPoint="0.5,1"
-                                     StartPoint="0.5,0">
-                    <GradientStop Color="#FF3D3D3D"
-                                  Offset="1" />
-                    <GradientStop Color="#FFBDBDBD" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="BorderBrush" Value="Gray"/>
     </Style>
 
 </ResourceDictionary>
