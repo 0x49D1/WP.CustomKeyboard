@@ -5,7 +5,8 @@ namespace WP7.Keyboard.Controls
 {
     public class DefaultScreenControl : Control, IOutputControl
     {
-        private TextBlock screenTextBlock;
+        private TextBlock _screenTextBlock;
+        private const string BlinkingCursor = "|";
 
         public DefaultScreenControl()
         {
@@ -15,9 +16,9 @@ namespace WP7.Keyboard.Controls
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            this.screenTextBlock = this.GetTemplateChild("PART_ScreenTextBlock") as TextBlock;
+            this._screenTextBlock = this.GetTemplateChild("PART_ScreenTextBlock") as TextBlock;
 
-            if (screenTextBlock == null)
+            if (_screenTextBlock == null)
             {
                 throw new InvalidOperationException("Cannot find PART_ScreenTextBlock.");
             }
@@ -27,34 +28,50 @@ namespace WP7.Keyboard.Controls
         {
             get
             {
-                return this.screenTextBlock.Text;
+                return RemoveBlinkingCursor(this._screenTextBlock.Text);
             }
         }
 
         public void AppendToText(string symbol)
         {
-            this.screenTextBlock.Text += symbol;
+            _screenTextBlock.Text = RemoveBlinkingCursor(_screenTextBlock.Text);
+            _screenTextBlock.Text = AddBlinkingCursor(_screenTextBlock.Text + symbol);
         }
 
         public void RemoveLast()
         {
-            if (this.screenTextBlock.Text.Length == 0)
+            if (this._screenTextBlock.Text.Length == 0)
             {
                 return;
             }
-
-            this.screenTextBlock.Text = this.screenTextBlock.Text.Remove(this.screenTextBlock.Text.Length - 1, 1);
+            _screenTextBlock.Text = RemoveBlinkingCursor(_screenTextBlock.Text);
+            this._screenTextBlock.Text = AddBlinkingCursor(this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1));
         }
 
         public void Clear()
         {
-            if (this.screenTextBlock.Text.Length == 0)
+            if (this._screenTextBlock.Text.Length == 0)
                 return;
 
-            while (this.screenTextBlock.Text.Length > 0)
+            while (this._screenTextBlock.Text.Length > 0)
             {
                 RemoveLast();
             }
+
+            _screenTextBlock.Text = AddBlinkingCursor(string.Empty);
+        }
+
+
+        private string AddBlinkingCursor(string text)
+        {
+            return text + BlinkingCursor;
+        }
+
+        private string RemoveBlinkingCursor(string text)
+        {
+            if (text.Length > 1 && text.Contains(BlinkingCursor))
+                return text.Remove(text.Length - 1, 1);
+            return text;
         }
     }
 }
