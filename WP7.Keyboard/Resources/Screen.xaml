@@ -6,8 +6,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Controls:DefaultScreenControl">
-                    <Border Background="#77000000"
-                            BorderBrush="{TemplateBinding BorderBrush}"
+                    <Border BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <ScrollViewer>
                             <TextBlock x:Name="PART_ScreenTextBlock"

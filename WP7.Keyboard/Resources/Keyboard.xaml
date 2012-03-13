@@ -9,10 +9,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Controls:Keyboard">
-                    <Border CornerRadius="0,0,13,13"
-                            BorderThickness="3"
-                            BorderBrush="White"
-                            Background="#77000000">
+                    <Border BorderThickness="1">
                         <Grid Margin="0,10">
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -42,7 +39,6 @@
                                     <Controls:SystemKeyButton x:Name="PART_SymbolButton"
                                                               Content="+/-"
                                                               Width="36"
-                                                               FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
                                                               FontSize="21.333"
                                                               Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSecondaryKeyboardVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
