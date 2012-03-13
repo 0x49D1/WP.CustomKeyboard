@@ -40,12 +40,15 @@ namespace WP7.Keyboard.Controls
 
         public void RemoveLast()
         {
+            _screenTextBlock.Text = RemoveBlinkingCursor(_screenTextBlock.Text);
             if (this._screenTextBlock.Text.Length == 0)
             {
                 return;
             }
-            _screenTextBlock.Text = RemoveBlinkingCursor(_screenTextBlock.Text);
-            this._screenTextBlock.Text = AddBlinkingCursor(this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1));
+            this._screenTextBlock.Text = _screenTextBlock.Text.Length > 1
+                ? AddBlinkingCursor(this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1))
+                : this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1);
+
         }
 
         public void Clear()
@@ -57,8 +60,6 @@ namespace WP7.Keyboard.Controls
             {
                 RemoveLast();
             }
-
-            _screenTextBlock.Text = AddBlinkingCursor(string.Empty);
         }
 
 
@@ -69,9 +70,9 @@ namespace WP7.Keyboard.Controls
 
         private string RemoveBlinkingCursor(string text)
         {
-            if (text.Length > 1 && text.Contains(BlinkingCursor))
+            if (text.Length > 1)
                 return text.Remove(text.Length - 1, 1);
-            return text;
+            return string.Empty;
         }
     }
 }
