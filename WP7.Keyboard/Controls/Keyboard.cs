@@ -11,7 +11,8 @@ namespace WP7.Keyboard.Controls
     public abstract class Keyboard : Control
     {
         public Dictionary<string, string> ToUpperReplacement;
-        private Expression expression;
+        private Expression _expression;
+    
         public static readonly DependencyProperty IsSpaceVisibleProperty =
             DependencyProperty.Register("IsSpaceVisible", typeof(bool), typeof(Keyboard), new PropertyMetadata(true));
         public static readonly DependencyProperty IsSecondaryKeyboardVisibleProperty =
@@ -159,7 +160,7 @@ namespace WP7.Keyboard.Controls
         {
             get
             {
-                return this.expression;
+                return this._expression;
             }
 
             set
@@ -174,7 +175,7 @@ namespace WP7.Keyboard.Controls
                     return;
                 }
 
-                this.expression = value;
+                this._expression = value;
             }
         }
 
@@ -271,15 +272,15 @@ namespace WP7.Keyboard.Controls
 
         private void ChangeCase(bool toUpper)
         {
-            foreach ( UIElement uiElement in this.keysGrid.Children )
+            foreach (UIElement uiElement in this.keysGrid.Children)
             {
                 StackPanel stackPanel = uiElement as StackPanel;
-                if ( stackPanel == null )
+                if (stackPanel == null)
                 {
                     continue;
                 }
 
-                foreach ( UIElement element in stackPanel.Children )
+                foreach (UIElement element in stackPanel.Children)
                 {
                     Button button = element as Button;
 
@@ -376,5 +377,6 @@ namespace WP7.Keyboard.Controls
         {
             this.RaiseEnterKeyClicked(EventArgs.Empty);
         }
+
     }
 }
