@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "WP7.Keyboard.Client" )]
-[assembly: AssemblyDescription( "" )]
+[assembly: AssemblyTitle("Unsupported Keyboard")]
+[assembly: AssemblyDescription("Custom keyboard layout for WP7. Need it to add unsupported languages.")]
 [assembly: AssemblyConfiguration( "" )]
-[assembly: AssemblyCompany( "Microsoft" )]
-[assembly: AssemblyProduct( "WP7.Keyboard.Client" )]
-[assembly: AssemblyCopyright( "Copyright © Microsoft 2011" )]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Unsupported Keyboard")]
+[assembly: AssemblyCopyright("Copyright © Dmitry Pursanov")]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 
