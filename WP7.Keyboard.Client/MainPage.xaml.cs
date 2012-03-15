@@ -91,5 +91,10 @@ namespace WP7.Keyboard.Client
                 }
             }
         }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));
+        }
     }
 }
