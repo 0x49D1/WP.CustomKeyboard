@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:Controls="clr-namespace:WP7.Keyboard.Controls"
-                    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls">
+                    xmlns:Controls="clr-namespace:WP7.Keyboard.Controls">
 
     <Style TargetType="Controls:DefaultScreenControl">
         <Setter Property="Template">

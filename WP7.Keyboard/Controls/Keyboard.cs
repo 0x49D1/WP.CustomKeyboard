@@ -12,17 +12,22 @@ namespace WP7.Keyboard.Controls
     {
         public Dictionary<string, string> ToUpperReplacement;
         private Expression _expression;
-    
+
         public static readonly DependencyProperty IsSpaceVisibleProperty =
-            DependencyProperty.Register("IsSpaceVisible", typeof(bool), typeof(Keyboard), new PropertyMetadata(true));
+            DependencyProperty.Register("IsSpaceVisible", typeof (bool), typeof (Keyboard), new PropertyMetadata(true));
+
         public static readonly DependencyProperty IsSecondaryKeyboardVisibleProperty =
-            DependencyProperty.Register("IsSecondaryKeyboardVisible", typeof(bool), typeof(Keyboard), new PropertyMetadata(true));
+            DependencyProperty.Register("IsSecondaryKeyboardVisible", typeof (bool), typeof (Keyboard), new PropertyMetadata(true));
+
         public static readonly DependencyProperty IsCapsLockVisibleProperty =
-            DependencyProperty.Register("IsCapsLockVisible", typeof(bool), typeof(Keyboard), new PropertyMetadata(true));
+            DependencyProperty.Register("IsCapsLockVisible", typeof (bool), typeof (Keyboard), new PropertyMetadata(true));
+
         public static readonly DependencyProperty IsInShiftModeProperty =
-            DependencyProperty.Register("IsInShiftMode", typeof(bool), typeof(Keyboard), new PropertyMetadata(false, OnInShiftModeChanged));
+            DependencyProperty.Register("IsInShiftMode", typeof (bool), typeof (Keyboard), new PropertyMetadata(false, OnInShiftModeChanged));
+
         public static readonly DependencyProperty IsInSymbolModeProperty =
-            DependencyProperty.Register("IsInSymbolMode", typeof(bool), typeof(Keyboard), new PropertyMetadata(false, OnInSymbolModeChanged));
+            DependencyProperty.Register("IsInSymbolMode", typeof (bool), typeof (Keyboard),
+                                        new PropertyMetadata(false, OnInSymbolModeChanged));
 
         public event EventHandler<KeyEventArgs> KeyClicked;
         public event EventHandler SpaceKeyClicked;
@@ -40,68 +45,38 @@ namespace WP7.Keyboard.Controls
 
         protected Keyboard()
         {
-            this.DefaultStyleKey = typeof(Keyboard);
+            this.DefaultStyleKey = typeof (Keyboard);
             this.Expression = new DefaultExpression();
         }
 
         public bool IsSpaceVisible
         {
-            get
-            {
-                return (bool)GetValue(IsSpaceVisibleProperty);
-            }
-            set
-            {
-                SetValue(IsSpaceVisibleProperty, value);
-            }
+            get { return (bool) GetValue(IsSpaceVisibleProperty); }
+            set { SetValue(IsSpaceVisibleProperty, value); }
         }
 
         public bool IsSecondaryKeyboardVisible
         {
-            get
-            {
-                return (bool)GetValue(IsSecondaryKeyboardVisibleProperty);
-            }
-            set
-            {
-                SetValue(IsSecondaryKeyboardVisibleProperty, value);
-            }
+            get { return (bool) GetValue(IsSecondaryKeyboardVisibleProperty); }
+            set { SetValue(IsSecondaryKeyboardVisibleProperty, value); }
         }
 
         public bool IsCapsLockVisible
         {
-            get
-            {
-                return (bool)GetValue(IsCapsLockVisibleProperty);
-            }
-            set
-            {
-                SetValue(IsCapsLockVisibleProperty, value);
-            }
+            get { return (bool) GetValue(IsCapsLockVisibleProperty); }
+            set { SetValue(IsCapsLockVisibleProperty, value); }
         }
 
         public bool IsInShiftMode
         {
-            get
-            {
-                return (bool)GetValue(IsInShiftModeProperty);
-            }
-            set
-            {
-                SetValue(IsInShiftModeProperty, value);
-            }
+            get { return (bool) GetValue(IsInShiftModeProperty); }
+            set { SetValue(IsInShiftModeProperty, value); }
         }
 
         public bool IsInSymbolMode
         {
-            get
-            {
-                return (bool)GetValue(IsInSymbolModeProperty);
-            }
-            set
-            {
-                SetValue(IsInSymbolModeProperty, value);
-            }
+            get { return (bool) GetValue(IsInSymbolModeProperty); }
+            set { SetValue(IsInSymbolModeProperty, value); }
         }
 
         public override void OnApplyTemplate()
@@ -158,10 +133,7 @@ namespace WP7.Keyboard.Controls
 
         public Expression Expression
         {
-            get
-            {
-                return this._expression;
-            }
+            get { return this._expression; }
 
             set
             {
@@ -206,36 +178,28 @@ namespace WP7.Keyboard.Controls
         {
             EventHandler<KeyEventArgs> handler = this.KeyClicked;
             if (handler != null)
-            {
                 handler(this, e);
-            }
         }
 
         protected virtual void RaiseSpaceKeyClicked(EventArgs e)
         {
             EventHandler handler = this.SpaceKeyClicked;
             if (handler != null)
-            {
                 handler(this, e);
-            }
         }
 
         protected virtual void RaiseBackspaceButtonClicked(EventArgs e)
         {
             EventHandler handler = this.BackspaceKeyClicked;
             if (handler != null)
-            {
                 handler(this, e);
-            }
         }
 
         protected virtual void RaiseEnterKeyClicked(EventArgs e)
         {
             EventHandler handler = this.EnterKeyClicked;
             if (handler != null)
-            {
                 handler(this, e);
-            }
         }
 
         private void OnShiftButtonClick(object sender, RoutedEventArgs e)
@@ -252,9 +216,7 @@ namespace WP7.Keyboard.Controls
         {
             Keyboard keyboard = sender as Keyboard;
             if (keyboard == null)
-            {
                 return;
-            }
 
             keyboard.DoInShiftModeChanged();
         }
@@ -263,9 +225,7 @@ namespace WP7.Keyboard.Controls
         {
             Keyboard keyboard = sender as Keyboard;
             if (keyboard == null)
-            {
                 return;
-            }
 
             keyboard.DoInSymbolModeChanged();
         }
@@ -327,15 +287,15 @@ namespace WP7.Keyboard.Controls
             for (int row = 0; row < context.Rows; row++)
             {
                 this.keysGrid.RowDefinitions.Add(new RowDefinition
-                {
-                    Height = GridLength.Auto
-                });
+                                                     {
+                                                         Height = GridLength.Auto
+                                                     });
 
                 StackPanel insideGrid = new StackPanel
-                                        {
-                                            HorizontalAlignment = HorizontalAlignment.Center,
-                                            Orientation = Orientation.Horizontal
-                                        };
+                                            {
+                                                HorizontalAlignment = HorizontalAlignment.Center,
+                                                Orientation = Orientation.Horizontal
+                                            };
                 Grid.SetRow(insideGrid, row);
                 keysGrid.Children.Add(insideGrid);
 
@@ -343,9 +303,9 @@ namespace WP7.Keyboard.Controls
                 foreach (KeyMapping keyMapping in keyMappings)
                 {
                     KeyboardButton keyboardButton = new KeyboardButton
-                    {
-                        Content = keyMapping.Symbol
-                    };
+                                                        {
+                                                            Content = keyMapping.Symbol
+                                                        };
                     keyboardButton.Click += this.OnKeyButtonClicked;
                     insideGrid.Children.Add(keyboardButton);
                 }
@@ -356,9 +316,7 @@ namespace WP7.Keyboard.Controls
         {
             Button button = sender as Button;
             if (button == null || button.Content == null)
-            {
                 return;
-            }
 
             this.RaiseKeyClicked(new KeyEventArgs(this.IsInShiftMode, this.Expression.Interpret(button.Content.ToString())));
         }
@@ -377,6 +335,5 @@ namespace WP7.Keyboard.Controls
         {
             this.RaiseEnterKeyClicked(EventArgs.Empty);
         }
-
     }
 }
