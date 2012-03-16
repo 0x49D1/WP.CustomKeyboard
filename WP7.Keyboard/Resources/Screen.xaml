@@ -10,7 +10,9 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <ScrollViewer>
-                            <TextBlock x:Name="PART_ScreenTextBlock"
+                            <TextBlock
+                                   Foreground="{StaticResource PhoneForegroundBrush}"
+                                   x:Name="PART_ScreenTextBlock"
                                    Margin="12"
                                    FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
                                    FontSize="26"
