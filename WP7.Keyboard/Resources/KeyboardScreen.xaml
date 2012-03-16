@@ -7,7 +7,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Controls:KeyboardScreenControl">
-                    <controls:Pivot Title="Unsupported Keyboard"  Foreground="{StaticResource PhoneAccentBrush}">
+                    <controls:Pivot Title="" Foreground="{StaticResource PhoneAccentBrush}">
                         <controls:PivotItem Header="Write">
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -19,21 +19,25 @@
                                         HorizontalContentAlignment="Stretch"
                                         VerticalContentAlignment="Stretch"
                                         Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputControl}" />
-                                <ContentControl HorizontalAlignment="Stretch"
+                                <ContentControl 
+                                        HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         Grid.Row="1"
                                         Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Keyboard}" />
                             </Grid>
                         </controls:PivotItem>
                         <controls:PivotItem Header="Read">
-                            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                <TextBox 
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <TextBox 
                                    Margin="12"
                                    FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
                                    FontSize="26"
                                    TextWrapping="Wrap"
                                    Height="Auto"/>
-                            </ScrollViewer>
+                                </ScrollViewer>
+                            </Border>
                         </controls:PivotItem>
                     </controls:Pivot>
                 </ControlTemplate>
