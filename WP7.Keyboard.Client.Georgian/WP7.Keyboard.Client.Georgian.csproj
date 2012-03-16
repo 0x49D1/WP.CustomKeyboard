@@ -92,11 +92,21 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\Icons\BingSearch.png" />
-    <Resource Include="Resources\Icons\Copy.png" />
-    <Resource Include="Resources\Icons\Email.png" />
-    <Resource Include="Resources\Icons\PhoneCall.png" />
-    <Resource Include="Resources\Icons\SwitchKeyboard.png" />
+    <Content Include="Resources\Icons\BingSearch.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\Copy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\Email.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\PhoneCall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\SwitchKeyboard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\About\Data.xml" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
