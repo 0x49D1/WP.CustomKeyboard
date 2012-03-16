@@ -7,7 +7,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Controls:KeyboardScreenControl">
-                    <controls:Pivot Title="Unsupported Keyboard" Foreground="{StaticResource PhoneAccentBrush}">
+                    <controls:Pivot Title="Unsupported Keyboard"  Foreground="{StaticResource PhoneAccentBrush}">
                         <controls:PivotItem Header="Write">
                             <Grid>
                                 <Grid.RowDefinitions>
