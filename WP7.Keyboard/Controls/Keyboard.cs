@@ -13,20 +13,23 @@ namespace WP7.Keyboard.Controls
         public Dictionary<string, string> ToUpperReplacement;
         private Expression _expression;
 
+        public static readonly DependencyProperty IsKeyboardVisibleProperty =
+            DependencyProperty.Register("IsKeyboardVisible", typeof(bool), typeof(Keyboard), new PropertyMetadata(true));
+
         public static readonly DependencyProperty IsSpaceVisibleProperty =
-            DependencyProperty.Register("IsSpaceVisible", typeof (bool), typeof (Keyboard), new PropertyMetadata(true));
+            DependencyProperty.Register("IsSpaceVisible", typeof(bool), typeof(Keyboard), new PropertyMetadata(true));
 
         public static readonly DependencyProperty IsSecondaryKeyboardVisibleProperty =
-            DependencyProperty.Register("IsSecondaryKeyboardVisible", typeof (bool), typeof (Keyboard), new PropertyMetadata(true));
+            DependencyProperty.Register("IsSecondaryKeyboardVisible", typeof(bool), typeof(Keyboard), new PropertyMetadata(true));
 
         public static readonly DependencyProperty IsCapsLockVisibleProperty =
-            DependencyProperty.Register("IsCapsLockVisible", typeof (bool), typeof (Keyboard), new PropertyMetadata(true));
+            DependencyProperty.Register("IsCapsLockVisible", typeof(bool), typeof(Keyboard), new PropertyMetadata(true));
 
         public static readonly DependencyProperty IsInShiftModeProperty =
-            DependencyProperty.Register("IsInShiftMode", typeof (bool), typeof (Keyboard), new PropertyMetadata(false, OnInShiftModeChanged));
+            DependencyProperty.Register("IsInShiftMode", typeof(bool), typeof(Keyboard), new PropertyMetadata(false, OnInShiftModeChanged));
 
         public static readonly DependencyProperty IsInSymbolModeProperty =
-            DependencyProperty.Register("IsInSymbolMode", typeof (bool), typeof (Keyboard),
+            DependencyProperty.Register("IsInSymbolMode", typeof(bool), typeof(Keyboard),
                                         new PropertyMetadata(false, OnInSymbolModeChanged));
 
         public event EventHandler<KeyEventArgs> KeyClicked;
@@ -45,37 +48,43 @@ namespace WP7.Keyboard.Controls
 
         protected Keyboard()
         {
-            this.DefaultStyleKey = typeof (Keyboard);
+            this.DefaultStyleKey = typeof(Keyboard);
             this.Expression = new DefaultExpression();
+        }
+
+        public bool IsKeyboardVisible
+        {
+            get { return (bool)GetValue(IsKeyboardVisibleProperty); }
+            set { SetValue(IsKeyboardVisibleProperty, value); }
         }
 
         public bool IsSpaceVisible
         {
-            get { return (bool) GetValue(IsSpaceVisibleProperty); }
+            get { return (bool)GetValue(IsSpaceVisibleProperty); }
             set { SetValue(IsSpaceVisibleProperty, value); }
         }
 
         public bool IsSecondaryKeyboardVisible
         {
-            get { return (bool) GetValue(IsSecondaryKeyboardVisibleProperty); }
+            get { return (bool)GetValue(IsSecondaryKeyboardVisibleProperty); }
             set { SetValue(IsSecondaryKeyboardVisibleProperty, value); }
         }
 
         public bool IsCapsLockVisible
         {
-            get { return (bool) GetValue(IsCapsLockVisibleProperty); }
+            get { return (bool)GetValue(IsCapsLockVisibleProperty); }
             set { SetValue(IsCapsLockVisibleProperty, value); }
         }
 
         public bool IsInShiftMode
         {
-            get { return (bool) GetValue(IsInShiftModeProperty); }
+            get { return (bool)GetValue(IsInShiftModeProperty); }
             set { SetValue(IsInShiftModeProperty, value); }
         }
 
         public bool IsInSymbolMode
         {
-            get { return (bool) GetValue(IsInSymbolModeProperty); }
+            get { return (bool)GetValue(IsInSymbolModeProperty); }
             set { SetValue(IsInSymbolModeProperty, value); }
         }
 

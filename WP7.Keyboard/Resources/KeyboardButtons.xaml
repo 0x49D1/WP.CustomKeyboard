@@ -24,8 +24,8 @@
         <Setter Property="BorderBrush" Value="Gray"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button" >
-                    <Grid x:Name="grid" 
+                <ControlTemplate TargetType="Button">
+                    <Grid x:Name="grid"
                           RenderTransformOrigin="0.5,0.5">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
