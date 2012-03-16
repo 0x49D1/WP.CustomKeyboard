@@ -26,13 +26,14 @@
                             </Grid>
                         </controls:PivotItem>
                         <controls:PivotItem Header="Read">
-                            <TextBox 
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <TextBox 
                                    Margin="12"
                                    FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
                                    FontSize="26"
                                    TextWrapping="Wrap"
-                                   Height="Auto"
-                                   ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                                   Height="Auto"/>
+                            </ScrollViewer>
                         </controls:PivotItem>
                     </controls:Pivot>
                 </ControlTemplate>
