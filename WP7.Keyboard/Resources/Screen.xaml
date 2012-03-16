@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:Controls="clr-namespace:WP7.Keyboard.Controls">
+                    xmlns:Controls="clr-namespace:WP7.Keyboard.Controls"
+                    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls">
 
     <Style TargetType="Controls:DefaultScreenControl">
         <Setter Property="Template">
@@ -10,7 +11,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <ScrollViewer>
                             <TextBlock x:Name="PART_ScreenTextBlock"
-                                   Margin="11"
+                                   Margin="12"
                                    FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
                                    FontSize="26"
                                    TextWrapping="Wrap" />
