@@ -1,26 +1,40 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:Controls="clr-namespace:WP7.Keyboard.Controls">
+                    xmlns:Controls="clr-namespace:WP7.Keyboard.Controls"
+                    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls">
 
     <Style TargetType="Controls:KeyboardScreenControl">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Controls:KeyboardScreenControl">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <ContentControl HorizontalAlignment="Stretch"
+                    <controls:Pivot Title="Unsupported Keyboard" Foreground="{StaticResource PhoneAccentBrush}">
+                        <controls:PivotItem Header="Write">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <ContentControl HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         HorizontalContentAlignment="Stretch"
                                         VerticalContentAlignment="Stretch"
                                         Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputControl}" />
-                        <ContentControl HorizontalAlignment="Stretch"
+                                <ContentControl HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         Grid.Row="1"
                                         Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Keyboard}" />
-                    </Grid>
+                            </Grid>
+                        </controls:PivotItem>
+                        <controls:PivotItem Header="Read">
+                            <TextBox 
+                                   Margin="12"
+                                   FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
+                                   FontSize="26"
+                                   TextWrapping="Wrap"
+                                   Height="Auto"
+                                   ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                        </controls:PivotItem>
+                    </controls:Pivot>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
