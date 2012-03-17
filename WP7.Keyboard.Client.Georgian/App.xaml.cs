@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Navigation;
+using BugSense;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
@@ -22,8 +23,7 @@ namespace WP7.Keyboard.Client
         /// </summary>
         public App()
         {
-            // Global handler for uncaught exceptions. 
-            UnhandledException += Application_UnhandledException;
+            BugSenseHandler.Instance.Init(this, "4f73d404");
 
             // Show graphics profiling information while debugging.
             if ( System.Diagnostics.Debugger.IsAttached )
