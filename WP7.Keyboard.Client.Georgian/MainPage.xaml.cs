@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security;
 using System.Windows;
+using BugSense;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
@@ -69,7 +70,11 @@ namespace WP7.Keyboard.Client
             }
             catch (SecurityException ex)
             {
-                MessageBox.Show("Clipboard not permitted");
+                BugSenseHandler.Instance.LogError(ex);
+            }
+            catch (Exception ex)
+            {
+                BugSenseHandler.Instance.LogError(ex);
             }
         }
 
@@ -87,7 +92,14 @@ namespace WP7.Keyboard.Client
             {
                 if (MessageBox.Show("Do you really want to clear all text?", "", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {
-                    this.Keyboard.OutputControl.Clear();
+                    try
+                    {
+                        this.Keyboard.OutputControl.Clear();
+                    }
+                    catch (Exception ex)
+                    {
+                        BugSenseHandler.Instance.LogError(ex);
+                    }
                 }
             }
         }
