@@ -29,7 +29,7 @@
                 <bgKeyboard:GeorgianKeyboard />
             </keyboardControls:KeyboardScreenControl.Keyboard>
         </keyboardControls:KeyboardScreenControl>
-        <my:AdControl Height="50" Grid.Row="1" AdUnitId="Image300_50" ApplicationId="test_client" Background="Blue"/>
+        <my:AdControl Height="80" Width="480" Grid.Row="1" AdUnitId="Image480_80" ApplicationId="test_client"/>
     </Grid>
 
     <!--Sample code showing usage of ApplicationBar-->
