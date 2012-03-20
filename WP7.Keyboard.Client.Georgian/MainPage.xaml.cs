@@ -48,12 +48,12 @@ namespace WP7.Keyboard.Client
             if (ReferenceEquals(geoKeyboard, this.Keyboard.Keyboard))
             {
                 this.Keyboard.Keyboard = this.latinKeyboard;
-                changeKeyboardButton.Text = "Switch to GEO";
+                changeKeyboardButton.Text = "Switch to Georgian";
             }
             else
             {
                 this.Keyboard.Keyboard = this.geoKeyboard;
-                changeKeyboardButton.Text = "Switch to EN";
+                changeKeyboardButton.Text = "Switch to English";
             }
         }
 
@@ -66,7 +66,8 @@ namespace WP7.Keyboard.Client
                 ApplicationBarMenuItem item = (ApplicationBarMenuItem)ApplicationBar.MenuItems[1];
                 if (item != null)
                     item.IsEnabled = true;
-                MessageBox.Show("Copy success!");
+
+                MessageBox.Show("Success!");
             }
             catch (SecurityException ex)
             {

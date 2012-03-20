@@ -48,7 +48,7 @@
                                             x:Name="btnCopyText"
                                             Click="CopyTextButtonClick" />
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="Switch to EN" x:Name="btnChangeKeyboard" Click="ChangeKeyboardButtonClick"/>
+                <shell:ApplicationBarMenuItem Text="Switch to English" x:Name="btnChangeKeyboard" Click="ChangeKeyboardButtonClick"/>
                 <shell:ApplicationBarMenuItem Text="Paste" x:Name="btnPaste" Click="PasteClick" IsEnabled="False" />
                 <shell:ApplicationBarMenuItem Text="Clear" x:Name="btnClearBoard" Click="ClearClick" />
                 <shell:ApplicationBarMenuItem Text="ABOUT" x:Name="btnAbout" Click="btnAbout_Click" />
