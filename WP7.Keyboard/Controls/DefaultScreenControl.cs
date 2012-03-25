@@ -5,7 +5,7 @@ namespace WP7.Keyboard.Controls
 {
     public class DefaultScreenControl : Control, IOutputControl
     {
-        private TextBlock _screenTextBlock;
+        public TextBlock _screenTextBlock;
         private const string BlinkingCursor = "|";
 
         public DefaultScreenControl()

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Security;
 using System.Windows;
+using System.Windows.Controls;
+using BugSense;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using WP7.Keyboard.Essential;
 
 namespace WP7.Keyboard.Client
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class MainPage : StatefulPhoneApplicationPage
     {
         private Keyboard.Controls.Keyboard geoKeyboard;
         private Keyboard.Controls.Keyboard latinKeyboard;
@@ -19,6 +22,27 @@ namespace WP7.Keyboard.Client
 
             latinKeyboard = new LatinKeyboard.LatinKeyboard();
             geoKeyboard = this.Keyboard.Keyboard;
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            if (IsNewPageInstance && IsStatePreserved)
+            {
+                RestoreTextBlockState((TextBlock)this.FindName("PART_ScreenTextBlock"));
+                RestoreControlState((TextBox)this.FindName("PART_ScreenTextBox"));
+                RestoreFocusState(this.Keyboard);
+            }
+        }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            PreserveTextBlockState((TextBlock)this.FindName("PART_ScreenTextBlock"));
+            PreserveControlState((TextBox)this.FindName("PART_ScreenTextBox"));
+            PreserveFocusState(this.Keyboard);
         }
 
         private void EmailButtonClick(object sender, EventArgs e)
@@ -47,12 +71,12 @@ namespace WP7.Keyboard.Client
             if (ReferenceEquals(geoKeyboard, this.Keyboard.Keyboard))
             {
                 this.Keyboard.Keyboard = this.latinKeyboard;
-                changeKeyboardButton.Text = "Switch to GEO";
+                changeKeyboardButton.Text = "Switch to Georgian";
             }
             else
             {
                 this.Keyboard.Keyboard = this.geoKeyboard;
-                changeKeyboardButton.Text = "Switch to EN";
+                changeKeyboardButton.Text = "Switch to English";
             }
         }
 
@@ -65,11 +89,16 @@ namespace WP7.Keyboard.Client
                 ApplicationBarMenuItem item = (ApplicationBarMenuItem)ApplicationBar.MenuItems[1];
                 if (item != null)
                     item.IsEnabled = true;
-                MessageBox.Show("Copy success!");
+
+                MessageBox.Show("Success!");
             }
             catch (SecurityException ex)
             {
-                MessageBox.Show("Clipboard not permitted");
+                BugSenseHandler.Instance.LogError(ex);
+            }
+            catch (Exception ex)
+            {
+                BugSenseHandler.Instance.LogError(ex);
             }
         }
 
@@ -87,7 +116,14 @@ namespace WP7.Keyboard.Client
             {
                 if (MessageBox.Show("Do you really want to clear all text?", "", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {
-                    this.Keyboard.OutputControl.Clear();
+                    try
+                    {
+                        this.Keyboard.OutputControl.Clear();
+                    }
+                    catch (Exception ex)
+                    {
+                        BugSenseHandler.Instance.LogError(ex);
+                    }
                 }
             }
         }

@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Security;
 using System.Windows;
+using System.Windows.Controls;
 using BugSense;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using WP7.Keyboard.Client.Georgian.Modules;
+using WP7.Keyboard.Essential;
 
 namespace WP7.Keyboard.Client
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class MainPage : StatefulPhoneApplicationPage
     {
         private Keyboard.Controls.Keyboard geoKeyboard;
         private Keyboard.Controls.Keyboard latinKeyboard;
         private string localClipboard = string.Empty;
+        private bool isFirstLoad = true;
 
         // Constructor
         public MainPage()
@@ -22,6 +24,20 @@ namespace WP7.Keyboard.Client
             latinKeyboard = new LatinKeyboard.LatinKeyboard();
             geoKeyboard = this.Keyboard.Keyboard;
         }
+
+        //protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        //{
+        //    base.OnNavigatedTo(e);
+        //}
+
+        //protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        //{
+        //    base.OnNavigatedFrom(e);
+
+        //    PreserveOutputControlState(this.Keyboard.OutputControl);
+        //    PreserveControlState((TextBox)this.FindName("PART_ScreenTextBox"));
+        //    PreserveFocusState(this.Keyboard);
+        //}
 
         private void EmailButtonClick(object sender, EventArgs e)
         {

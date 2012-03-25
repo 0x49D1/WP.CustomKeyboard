@@ -3,6 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using WP7.Keyboard.Controls;
 
 namespace WP7.Keyboard.Essential
 {
@@ -23,8 +25,8 @@ namespace WP7.Keyboard.Essential
         {
             get
             {
-                if (this.State.ContainsKey(STATE_PRESERVED_STRING))
-                    return (bool)this.State[STATE_PRESERVED_STRING];
+                if (PhoneApplicationService.Current.State.ContainsKey(STATE_PRESERVED_STRING))
+                    return (bool)PhoneApplicationService.Current.State[STATE_PRESERVED_STRING];
                 return false;
             }
         }
@@ -40,19 +42,24 @@ namespace WP7.Keyboard.Essential
             else if (control is CheckBox)
                 PreserveCheckBoxState(control as CheckBox);
 
-            this.State[STATE_PRESERVED_STRING] = true;
+            PhoneApplicationService.Current.State[STATE_PRESERVED_STRING] = true;
         }
 
         private void PreserveCheckBoxState(CheckBox checkBox)
         {
-            this.State[checkBox.Name + ".IsChecked"] = checkBox.IsChecked;
+            PhoneApplicationService.Current.State[checkBox.Name + ".IsChecked"] = checkBox.IsChecked;
         }
 
         private void PreserveTextBoxState(TextBox textBox)
         {
-            this.State[textBox.Name + ".Text"] = textBox.Text;
-            this.State[textBox.Name + ".SelectionStart"] = textBox.SelectionStart;
-            this.State[textBox.Name + ".SelectionLength"] = textBox.SelectionLength;
+            PhoneApplicationService.Current.State[textBox.Name + ".Text"] = textBox.Text;
+            PhoneApplicationService.Current.State[textBox.Name + ".SelectionStart"] = textBox.SelectionStart;
+            PhoneApplicationService.Current.State[textBox.Name + ".SelectionLength"] = textBox.SelectionLength;
+        }
+
+        protected void PreserveOutputControlState(IOutputControl outputControl)
+        {
+            PhoneApplicationService.Current.State["OutputControl.Text"] = outputControl.Text;
         }
 
         protected void PreserveFocusState(FrameworkElement parent)
@@ -60,22 +67,22 @@ namespace WP7.Keyboard.Essential
             Control focusedControl = FocusManager.GetFocusedElement() as Control;
             if (focusedControl == null)
             {
-                this.State["FocusedControlName"] = null;
+                PhoneApplicationService.Current.State["FocusedControlName"] = null;
             }
             else
             {
                 Control controlWithFocus = parent.FindName(focusedControl.Name) as Control;
 
                 if (controlWithFocus == null)
-                    this.State["FocusedControlName"] = null;
+                    PhoneApplicationService.Current.State["FocusedControlName"] = null;
                 else
-                    this.State["FocusedControlName"] = focusedControl.Name;
+                    PhoneApplicationService.Current.State["FocusedControlName"] = focusedControl.Name;
             }
         }
 
         protected void PreserveTextBlockState(TextBlock textBlock)
         {
-            this.State[textBlock.Name + ".Text"] = textBlock.Text;
+            PhoneApplicationService.Current.State[textBlock.Name + ".Text"] = textBlock.Text;
         }
 
         #endregion
@@ -107,12 +114,18 @@ namespace WP7.Keyboard.Essential
             textBlock.Text = TryGetValue<string>(textBlock.Name + ".Text", string.Empty);
         }
 
+        protected void RestoreOutputControlState(IOutputControl outputControl)
+        {
+            if (outputControl != null)
+                outputControl.AppendToText(TryGetValue<string>("OutputControl.Text", string.Empty));
+        }
+
         protected void RestoreFocusState(FrameworkElement parent)
         {
-            if (this.State["FocusedControlName"] == null || !(this.State["FocusedControlName"] is string))
+            if (PhoneApplicationService.Current.State["FocusedControlName"] == null || !(PhoneApplicationService.Current.State["FocusedControlName"] is string))
                 return;
 
-            Control focusedControl = parent.FindName(this.State["FocusedControlName"] as string) as Control;
+            Control focusedControl = parent.FindName(PhoneApplicationService.Current.State["FocusedControlName"] as string) as Control;
             if (focusedControl != null)
                 focusedControl.Focus();
         }
@@ -123,10 +136,10 @@ namespace WP7.Keyboard.Essential
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentNullException("name cant be null. We cant find object's state");
-            if (!this.State.ContainsKey(name))
+            if (!PhoneApplicationService.Current.State.ContainsKey(name))
                 return defaultValue;
 
-            return (T)this.State[name];
+            return (T)PhoneApplicationService.Current.State[name];
         }
     }
 }
