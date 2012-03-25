@@ -110,10 +110,5 @@ namespace WP7.Keyboard.Client
         {
             NavigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));
         }
-
-        private void btnSandro_Click(object sender, EventArgs e)
-        {
-            this.Keyboard.OutputControl.AppendToText(ModuleForSandro.Words[new Random().Next(ModuleForSandro.Words.Count - 1)]);
-        }
     }
 }
