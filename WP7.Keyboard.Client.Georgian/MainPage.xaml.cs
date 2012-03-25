@@ -4,6 +4,7 @@ using System.Windows;
 using BugSense;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using WP7.Keyboard.Client.Georgian.Modules;
 
 namespace WP7.Keyboard.Client
 {
@@ -108,6 +109,11 @@ namespace WP7.Keyboard.Client
         private void btnAbout_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));
+        }
+
+        private void btnSandro_Click(object sender, EventArgs e)
+        {
+            this.Keyboard.OutputControl.AppendToText(ModuleForSandro.Words[new Random().Next(ModuleForSandro.Words.Count - 1)]);
         }
     }
 }

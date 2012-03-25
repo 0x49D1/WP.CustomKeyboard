@@ -61,6 +61,7 @@
     <Compile Include="Controls\Buttons\KeyEventArgs.cs" />
     <Compile Include="Controls\Buttons\SpaceKeyboardButton.cs" />
     <Compile Include="Controls\Buttons\SystemKeyButton.cs" />
+    <Compile Include="Essential\StatefulPhoneApplicationPage.cs" />
     <Compile Include="PivotIndexToVisibilityConverter.cs" />
     <Compile Include="Interpreter\DefaultExpression.cs" />
     <Compile Include="Interpreter\Expression.cs" />
