@@ -28,6 +28,7 @@
                                     BorderThickness="{TemplateBinding BorderThickness}">
                                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                                         <TextBox 
+                                           Name="PART_ScreenTextBox"
                                            Margin="12"
                                            FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
                                            FontSize="26"
