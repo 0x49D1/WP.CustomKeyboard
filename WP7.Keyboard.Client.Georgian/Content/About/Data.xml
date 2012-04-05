@@ -33,8 +33,7 @@
               AppPublisherLabel="Publisher:"
               AppVersionLabel="Version:"
               AppAdditionalNotesLabel=" "
-              AppReviewButtonContent="Review this app!"
-              AppBuyButtonContent="Buy this app!">
+              AppReviewButtonContent="Review this app!">
       <Links>
         <!-- A collection of links presented on the front page. -->
         <!-- By using different protocols like http or mailto you can invoke the respective applications -->
