@@ -46,6 +46,7 @@ namespace WP7.GeorgianKeyboard
             ToUpperReplacement.Add("ს","შ");
             ToUpperReplacement.Add("ჯ","ჟ");
             ToUpperReplacement.Add("ზ","ძ");
+            ToUpperReplacement.Add("ც","ჩ");
             ToUpperReplacement.Add("ნ","N");
 
             return keyboardContext;
