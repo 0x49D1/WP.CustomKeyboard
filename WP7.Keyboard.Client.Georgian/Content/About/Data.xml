@@ -42,8 +42,8 @@
         <Link NavigateUri="http://0x49d1.net"
               Content="http://0x49d1.net"
               Label="Web:" />
-        <Link NavigateUri="mailto:pursanovd@gmail.com"
-              Content="pursanovd@gmail.com"
+        <Link NavigateUri="mailto:dpursanov@live.com"
+              Content="dpursanov@live.com"
               Label="Support:" />
       </Links>
     </MainItem>
@@ -63,6 +63,8 @@
     <!-- Supported types are "text" and "xaml", where text is nicely formatted automatically, and XAML is handled by the built-in XamlReader -->
     <Item Title="History"
           Type="text">
+      1.0.0.0
+      Fixed contact information, added missing letter! Sorry..    
       1.0.0.0
       This is the initial public version.      
     </Item>
