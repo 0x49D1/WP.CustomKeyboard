@@ -17,11 +17,12 @@
                         </Grid.RowDefinitions>
                         <controls:Pivot Foreground="{StaticResource PhoneAccentBrush}" x:Name="pvtMain">
                             <controls:PivotItem Header="Write">
-                                <ContentControl HorizontalAlignment="Stretch"
+                                <TextBox HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
+                                         IsReadOnly="True"
                                         HorizontalContentAlignment="Stretch"
                                         VerticalContentAlignment="Stretch"
-                                        Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputControl}" />
+                                        Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputControl}" />
                             </controls:PivotItem>
                             <controls:PivotItem Header="Read">
                                 <Border BorderBrush="{TemplateBinding BorderBrush}"
