@@ -45,9 +45,18 @@ namespace WP7.Keyboard.Controls
             {
                 return;
             }
-            this._screenTextBlock.Text = _screenTextBlock.Text.Length > 1
-                ? AddBlinkingCursor(this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1))
-                : this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1);
+            if (this._screenTextBlock.SelectionLength == 0)
+            {
+                this._screenTextBlock.Text = _screenTextBlock.Text.Length > 1
+                                                 ? AddBlinkingCursor(this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1))
+                                                 : this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1);
+            }
+            else
+            {
+                this._screenTextBlock.Text = _screenTextBlock.Text.Length > 1
+                                               ? AddBlinkingCursor(this._screenTextBlock.Text.Remove(this._screenTextBlock.SelectionStart - 1, this._screenTextBlock.SelectionLength))
+                                               : this._screenTextBlock.Text.Remove(this._screenTextBlock.SelectionStart - 1, this._screenTextBlock.SelectionLength);
+            }
 
         }
 
