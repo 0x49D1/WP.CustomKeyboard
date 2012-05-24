@@ -63,7 +63,7 @@
     <!-- Supported types are "text" and "xaml", where text is nicely formatted automatically, and XAML is handled by the built-in XamlReader -->
     <Item Title="History"
           Type="text">
-      1.0.0.0
+      1.1.0.0
       Fixed contact information, added missing letter! Sorry..    
       1.0.0.0
       This is the initial public version.      
