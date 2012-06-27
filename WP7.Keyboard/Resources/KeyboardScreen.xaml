@@ -14,15 +14,8 @@
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
+                        </Grid.RowDefinitions>                     
                         <controls:Pivot Foreground="{StaticResource PhoneAccentBrush}" x:Name="pvtMain">
-                            <controls:PivotItem Header="Write">
-                                <ContentControl HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        HorizontalContentAlignment="Stretch"
-                                        VerticalContentAlignment="Stretch"
-                                        Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputControl}" />
-                            </controls:PivotItem>
                             <controls:PivotItem Header="Read">
                                 <Border BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}">
@@ -33,9 +26,17 @@
                                            FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
                                            FontSize="26"
                                            TextWrapping="Wrap"
-                                           Height="Auto"/>
+                                           Height="Auto"
+                                           Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputReadControl.Text}" />
                                     </ScrollViewer>
                                 </Border>
+                            </controls:PivotItem>
+                            <controls:PivotItem Header="Write" >
+                                <ContentControl HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        HorizontalContentAlignment="Stretch"
+                                        VerticalContentAlignment="Stretch"
+                                        Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputControl}" />
                             </controls:PivotItem>
                         </controls:Pivot>
                         <ContentControl 

@@ -105,7 +105,7 @@ namespace WP7.Keyboard.Client
         {
             if (Clipboard.ContainsText())
             {
-                if (this.Keyboard.Keyboard.Visibility == Visibility.Visible)
+                if (this.Keyboard.Keyboard.IsKeyboardVisible)
                     this.Keyboard.OutputControl.AppendToText(localClipboard);
                 else
                     this.Keyboard.OutputReadControl.AppendToText(localClipboard);
