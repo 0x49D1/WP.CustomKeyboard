@@ -59,6 +59,7 @@ namespace WP7.Keyboard.Controls
         {
             base.OnApplyTemplate();
             this.OutputControl = new DefaultScreenControl();
+            this.OutputReadControl = new DefaultScreenControl();
         }
 
         private static void OnKeyboardChanged( DependencyObject d, DependencyPropertyChangedEventArgs e )
