@@ -82,7 +82,8 @@ namespace WP7.Keyboard.Essential
 
         protected void PreserveTextBlockState(TextBlock textBlock)
         {
-            PhoneApplicationService.Current.State[textBlock.Name + ".Text"] = textBlock.Text;
+            if (textBlock != null)
+                PhoneApplicationService.Current.State[textBlock.Name + ".Text"] = textBlock.Text;
         }
 
         #endregion

@@ -16,12 +16,12 @@ namespace WP7.Keyboard.Controls
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            this._screenTextBlock = this.GetTemplateChild("PART_ScreenTextBox") as TextBox;
-
+            this._screenTextBlock = this.GetTemplateChild("PART_ScreenTextBlock") as TextBox;
+     
             if (_screenTextBlock == null)
             {
                 throw new InvalidOperationException("Cannot find PART_ScreenTextBlock.");
-            }
+            }       
         }
 
         public string Text
@@ -45,10 +45,9 @@ namespace WP7.Keyboard.Controls
             {
                 return;
             }
-            this._screenTextBlock.Text = _screenTextBlock.Text.Length > 1
-                ? AddBlinkingCursor(this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1))
-                : this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1);
-
+                this._screenTextBlock.Text = _screenTextBlock.Text.Length > 1
+                                                 ? AddBlinkingCursor(this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1))
+                                                 : this._screenTextBlock.Text.Remove(this._screenTextBlock.Text.Length - 1, 1);
         }
 
         public void Clear()
