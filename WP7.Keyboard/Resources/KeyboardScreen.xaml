@@ -15,29 +15,27 @@
                             <RowDefinition />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <controls:PivotItem Header="Read">
-                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                        <controls:Pivot Foreground="{StaticResource PhoneAccentBrush}" x:Name="pvtMain">
+                            <controls:PivotItem Header="Write">
+                                <ContentControl HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        HorizontalContentAlignment="Stretch"
+                                        VerticalContentAlignment="Stretch"
+                                        Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputControl}" />
+                            </controls:PivotItem>
+                            <controls:PivotItem Header="Read">
+                                <Border BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}">
-                                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <TextBox 
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                        <TextBox 
                                            Name="PART_ScreenTextBox"
                                            Margin="12"
                                            FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
                                            FontSize="26"
                                            TextWrapping="Wrap"
-                                           Height="Auto"
-                                           Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputReadControl}" />
-                                </ScrollViewer>
-                            </Border>
-                        </controls:PivotItem>
-                        <controls:Pivot Foreground="{StaticResource PhoneAccentBrush}" x:Name="pvtMain">
-                            <controls:PivotItem Header="Write" >
-                                <TextBox HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        IsReadOnly="True"
-                                        HorizontalContentAlignment="Stretch"
-                                        VerticalContentAlignment="Stretch"
-                                        Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputControl}" />
+                                           Height="Auto"/>
+                                    </ScrollViewer>
+                                </Border>
                             </controls:PivotItem>
                         </controls:Pivot>
                         <ContentControl 
