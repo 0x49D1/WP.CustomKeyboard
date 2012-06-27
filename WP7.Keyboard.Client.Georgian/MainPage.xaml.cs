@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Security;
 using System.Windows;
-using System.Windows.Controls;
 using BugSense;
-using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WP7.Keyboard.Essential;
 
@@ -41,17 +39,23 @@ namespace WP7.Keyboard.Client
 
         private void EmailButtonClick(object sender, EventArgs e)
         {
-            MultimediaUtility.SendEmail(this.Keyboard.OutputControl.Text);
+            MultimediaUtility.SendEmail(Keyboard.Keyboard.Visibility == Visibility.Visible
+                                            ? this.Keyboard.OutputControl.Text
+                                            : this.Keyboard.OutputReadControl.Text);
         }
 
         private void BingSearchButtonClick(object sender, EventArgs e)
         {
-            MultimediaUtility.BingSearch(this.Keyboard.OutputControl.Text);
+            MultimediaUtility.BingSearch(Keyboard.Keyboard.Visibility == Visibility.Visible
+                                             ? this.Keyboard.OutputControl.Text
+                                             : this.Keyboard.OutputReadControl.Text);
         }
 
         private void SmsButtonClick(object sender, EventArgs e)
         {
-            MultimediaUtility.SendSms(this.Keyboard.OutputControl.Text);
+            MultimediaUtility.SendSms(Keyboard.Keyboard.Visibility == Visibility.Visible
+                                          ? this.Keyboard.OutputControl.Text
+                                          : this.Keyboard.OutputReadControl.Text);
         }
 
         private void ChangeKeyboardButtonClick(object sender, EventArgs e)
@@ -78,7 +82,8 @@ namespace WP7.Keyboard.Client
         {
             try
             {
-                localClipboard = this.Keyboard.OutputControl.Text;
+                localClipboard = this.Keyboard.Keyboard.Visibility == Visibility.Visible ? this.Keyboard.OutputControl.Text : this.Keyboard.OutputReadControl.Text;
+
                 Clipboard.SetText(localClipboard);
                 ApplicationBarMenuItem item = (ApplicationBarMenuItem)ApplicationBar.MenuItems[1];
                 if (item != null)
@@ -100,19 +105,27 @@ namespace WP7.Keyboard.Client
         {
             if (Clipboard.ContainsText())
             {
-                this.Keyboard.OutputControl.AppendToText(localClipboard);
+                if (this.Keyboard.Keyboard.Visibility == Visibility.Visible)
+                    this.Keyboard.OutputControl.AppendToText(localClipboard);
+                else
+                    this.Keyboard.OutputReadControl.AppendToText(localClipboard);
+
             }
         }
 
         private void ClearClick(object sender, EventArgs e)
         {
-            if (this.Keyboard.OutputControl.Text.Length > 0)
+            if ((this.Keyboard.OutputControl.Text.Length > 0 && Keyboard.Keyboard.Visibility == Visibility.Visible)
+                || (this.Keyboard.OutputReadControl.Text.Length > 0 && Keyboard.Keyboard.Visibility != Visibility.Visible))
             {
                 if (MessageBox.Show("Do you really want to clear all text?", "", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {
                     try
                     {
-                        this.Keyboard.OutputControl.Clear();
+                        if (Keyboard.Keyboard.Visibility == Visibility.Visible)
+                            this.Keyboard.OutputControl.Clear();
+                        else
+                            this.Keyboard.OutputReadControl.Clear();
                     }
                     catch (Exception ex)
                     {

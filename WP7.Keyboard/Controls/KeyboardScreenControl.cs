@@ -11,6 +11,8 @@ namespace WP7.Keyboard.Controls
             DependencyProperty.Register( "Keyboard", typeof( Keyboard ), typeof( KeyboardScreenControl ), new PropertyMetadata( OnKeyboardChanged ) );
         public static readonly DependencyProperty OutputControlProperty =
             DependencyProperty.Register( "OutputControl", typeof( IOutputControl ), typeof( KeyboardScreenControl ), new PropertyMetadata( OnOutputControlChanged ) );
+        public static readonly DependencyProperty OutputReadControlProperty =
+            DependencyProperty.Register( "OutputReadControl", typeof( IOutputControl ), typeof( KeyboardScreenControl ), new PropertyMetadata( OnOutputReadControlChanged ) );
 
         public KeyboardScreenControl()
         {
@@ -30,6 +32,18 @@ namespace WP7.Keyboard.Controls
         }
 
         public IOutputControl OutputControl
+        {
+            get
+            {
+                return ( IOutputControl )GetValue( OutputControlProperty );
+            }
+            set
+            {
+                SetValue( OutputControlProperty, value );
+            }
+        }
+
+        public IOutputControl OutputReadControl
         {
             get
             {
@@ -76,6 +90,11 @@ namespace WP7.Keyboard.Controls
             {
                 throw new ArgumentNullException( "e", "OutputControl cannot be null." );
             }
+        }
+
+        private static void OnOutputReadControlChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+           
         }
 
         private void OnKeyboardKeyClicked( object sender, KeyEventArgs e )
