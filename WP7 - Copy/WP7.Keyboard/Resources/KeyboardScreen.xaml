@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Controls="clr-namespace:WP7.Keyboard.Controls"
+                    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+                    xmlns:local="clr-namespace:WP7.Keyboard">
+
+    <local:PivotIndexToVisibilityConverter x:Key="PivotIndexToVisibilityConverter" />
+
+    <Style TargetType="Controls:KeyboardScreenControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Controls:KeyboardScreenControl">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>                     
+                        <controls:Pivot Foreground="{StaticResource PhoneAccentBrush}" x:Name="pvtMain">
+                            <!--<controls:PivotItem Header="Read">
+                                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                        <TextBox 
+                                           Name="PART_ScreenTextBox"
+                                           Margin="12"
+                                           FontFamily="/Fonts/bpg_glaho_sylfaen.ttf#Sylfaen"
+                                           FontSize="26"
+                                           TextWrapping="Wrap"
+                                           Height="Auto"
+                                           Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputReadControl.Text}" />
+                                    </ScrollViewer>
+                                </Border>
+                            </controls:PivotItem>-->
+                            <controls:PivotItem Header="Hide ↓" >
+                                <ContentControl HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        HorizontalContentAlignment="Stretch"
+                                        VerticalContentAlignment="Stretch"
+                                        Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=OutputControl}" />
+                            </controls:PivotItem>
+                        </controls:Pivot>
+                        <ContentControl 
+                            Visibility="{Binding ElementName=pvtMain, Path=SelectedIndex, Converter={StaticResource PivotIndexToVisibilityConverter}}"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Grid.Row="1"
+                                        Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Keyboard}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
