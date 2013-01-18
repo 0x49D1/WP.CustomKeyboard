@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/WP7.Keyboard;component/Resources/Keyboard.xaml" />
+        <ResourceDictionary Source="/WP7.Keyboard;component/Resources/KeyboardButtons.xaml" />
+        <ResourceDictionary Source="/WP7.Keyboard;component/Resources/Screen.xaml" />
+        <ResourceDictionary Source="/WP7.Keyboard;component/Resources/KeyboardScreen.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
