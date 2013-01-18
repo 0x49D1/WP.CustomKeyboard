@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WP8.Keyboard.Controls.Keyboard">
+    <Position X="0.5" Y="0.5" Width="2.75" />
+    <Members>
+      <Field Name="backspaceButton" Hidden="true" />
+      <Event Name="BackspaceKeyClicked" Hidden="true" />
+      <Method Name="ChangeCase" Hidden="true" />
+      <Method Name="DoInShiftModeChanged" Hidden="true" />
+      <Method Name="DoInSymbolModeChanged" Hidden="true" />
+      <Field Name="enterButton" Hidden="true" />
+      <Event Name="EnterKeyClicked" Hidden="true" />
+      <Field Name="expression" Hidden="true" />
+      <Method Name="GenerateKeyboard" Hidden="true" />
+      <Property Name="IsCapsLockVisible" Hidden="true" />
+      <Field Name="IsCapsLockVisibleProperty" Hidden="true" />
+      <Property Name="IsInShiftMode" Hidden="true" />
+      <Field Name="IsInShiftModeProperty" Hidden="true" />
+      <Property Name="IsInSymbolMode" Hidden="true" />
+      <Field Name="IsInSymbolModeProperty" Hidden="true" />
+      <Property Name="IsSecondaryKeyboardVisible" Hidden="true" />
+      <Field Name="IsSecondaryKeyboardVisibleProperty" Hidden="true" />
+      <Property Name="IsSpaceVisible" Hidden="true" />
+      <Field Name="IsSpaceVisibleProperty" Hidden="true" />
+      <Method Name="Keyboard" Hidden="true" />
+      <Field Name="keyboardContext" Hidden="true" />
+      <Event Name="KeyClicked" Hidden="true" />
+      <Field Name="keysGrid" Hidden="true" />
+      <Method Name="OnApplyTemplate" Hidden="true" />
+      <Method Name="OnBackspaceButtonClick" Hidden="true" />
+      <Method Name="OnEnterButtonClick" Hidden="true" />
+      <Method Name="OnInShiftModeChanged" Hidden="true" />
+      <Method Name="OnInSymbolModeChanged" Hidden="true" />
+      <Method Name="OnKeyButtonClicked" Hidden="true" />
+      <Method Name="OnShiftButtonClick" Hidden="true" />
+      <Method Name="OnSpaceButtonClick" Hidden="true" />
+      <Method Name="OnSymbolButtonClick" Hidden="true" />
+      <Method Name="RaiseBackspaceButtonClicked" Hidden="true" />
+      <Method Name="RaiseEnterKeyClicked" Hidden="true" />
+      <Method Name="RaiseKeyClicked" Hidden="true" />
+      <Method Name="RaiseSpaceKeyClicked" Hidden="true" />
+      <Field Name="secondaryKeybordContext" Hidden="true" />
+      <Field Name="shiftButton" Hidden="true" />
+      <Field Name="spaceButton" Hidden="true" />
+      <Event Name="SpaceKeyClicked" Hidden="true" />
+      <Field Name="symbolButton" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AhIFAUgQAABw0ECCAAEAKQAACJAAAAEQgOAAIQgUAkI=</HashCode>
+      <FileName>Controls\Keyboard.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Expression" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WP8.Keyboard.Interpreter.Expression">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interpreter\Expression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WP8.Keyboard.Interpreter.DefaultExpression">
+    <Position X="4.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interpreter\DefaultExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
